@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { debugData } from "./utils/debugData";
 import { fetchNui } from "./utils/fetchNui";
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import { useNuiEvent } from "./hooks/useNuiEvent";
 import { isEnvBrowser } from "./utils/misc";
 import { useEffect } from "react";
 import Handling_editor from "./components/Handling_editor";
+import Sidemenu from "./components/Sidemenu";
 
 
 
@@ -81,8 +82,21 @@ const App: React.FC = () => {
   return (
     <>
       {visible && (
-        <Box  m="auto" mt={6} w="95%" h="95vh" bg="#474747" border="1px borderStyle=round">
-          <Handling_editor />
+        <Box 
+          bg="black.200"
+          h="100vh"
+        >
+          <Flex
+            justifyContent={"space-between"}
+            minH = {"100%"}
+          >
+            <Box w="24%" m={2}>
+              <Handling_editor />
+            </Box>
+            <Box w="24%" m={2}>
+              <Sidemenu />
+            </Box>
+          </Flex>
         </Box>
       )}
     </>
